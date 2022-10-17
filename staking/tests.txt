@@ -1,0 +1,51 @@
+PASS src/frontend/tests/master_staking.test.ts (80.22 s)
+Testing the xBacked master staking contract.
+Deploy and check initial state of staking contract.
+✓ Admin: deploy and initialize staking contract. (898 ms)
+✓ Anyone: Connect to deployed staking contract, and test initial global view. (153 ms)
+✓ Admin: Transfer staking rewards to contract. (176 ms)
+Testing staker interactions.
+Staker: valid staking interactions.
+✓ Staker: stake asset. (145 ms)
+✓ Staker: unstake asset. (84 ms)
+Staker: invalid staking interactions.
+✓ Staker: stake negative amount of asset. (63 ms)
+✓ Staker: stake more asset than account balance. (97 ms)
+✓ Staker: connect to contract and withdraw more asset than they have staked. (241 ms)
+Testing multiple valid staking interactions.
+✓ Stakers: multiple stakes. (534 ms)
+✓ Stakers: multiple unstakes. (333 ms)
+Reward stakers accurately as time passes.
+✓ Staker: invalid reward claiming. (168 ms)
+✓ Staker: reward claiming. (8196 ms)
+✓ Stakers: test more advanced scenario. (16499 ms)
+Admin interactions and contract lifecycle.
+Admin interactions.
+✓ Staker: stake before contract is deprecated. (177 ms)
+✓ Admin: migrate admin address. (157 ms)
+✓ Admin: Update reward ratios provided parameters are valid. (121 ms)
+✓ Admin: Update reward rate. (57 ms)
+Deprecated admin and staking interactions.
+✓ Admin: Invalid deprecateAt block. (8 ms)
+✓ Admin: Change contract state to deprecated. (4732 ms)
+✓ Staker: Cannot deposit. (48 ms)
+✓ Anyone: Cannot close out contract when there is remaining stake. (6 ms)
+✓ Admin: Change contract state to undeprecated. (56 ms)
+✓ Staker: Can withdraw. (116 ms)
+✓ Anyone: Cannot close out contract when there is no remaining stake, but contract is not deprecated. (4 ms)
+✓ Anyone: Contract end of life conditions are met, the API calls are no longer available. (5269 ms)
+Contract end of life.
+✓ Anyone: Close out contract. (56 ms)
+✓ Anyone: Contract closed and no longer interactive. (113 ms)
+Contract end of life when deposits remain (timeout).
+✓ Admin: Deploy new instance of contract and initialize. (10053 ms)
+✓ Admin: Set contract to deprecated and wait until timeout. (17515 ms)
+Deploy new contracts for further testing
+✓ Test modifying deprecate timeout to a later date (711 ms)
+✓ Test using different valid staking assets (9661 ms)
+
+Test Suites: 2 passed, 2 total
+Tests: 32 passed, 32 total
+Snapshots: 0 total
+Time: 80.462 s
+Ran all test suites.
